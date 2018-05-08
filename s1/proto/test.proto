@@ -1,0 +1,14 @@
+syntax = "proto3";
+package github.com.gaodihu.study.s1;
+
+message TestRequest {
+    string name = 1;
+}
+
+message TestResponse {
+    string msg = 1;
+}
+
+service TestService {
+    rpc Hello(TestRequest) returns (TestResponse) {}
+}
