@@ -5,6 +5,7 @@ import (
 
 	pb "github.com/gaodihu/study/s1/proto"
 	"github.com/micro/go-micro"
+	_ "github.com/micro/go-plugins/registry/consul"
 	"golang.org/x/net/context"
 )
 
@@ -18,7 +19,7 @@ func (g *G) Hello(c context.Context, rqt *pb.TestRequest, rsp *pb.TestResponse) 
 
 func main() {
 	service := micro.NewService(
-		micro.Name("test"),
+		micro.Name("test-service"),
 		micro.Version("last"),
 	)
 
