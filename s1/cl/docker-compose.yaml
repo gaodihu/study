@@ -1,0 +1,9 @@
+services:
+    test-cli:
+        command: --registry_address=registry:8500 --register_interval=5 --register_ttl=10 
+        build: ./cl
+        links:
+            - consul
+        ports:
+            - "8081:8081"
+

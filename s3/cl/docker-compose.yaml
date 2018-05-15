@@ -1,0 +1,6 @@
+version "3"
+service:
+  cl-test:
+    build:.
+    ports:
+      - "8989"

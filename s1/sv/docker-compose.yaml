@@ -1,0 +1,21 @@
+services:
+    consul:
+        command: -server -bootstrap -rejoin
+        image: progrium/consul:latest
+        hostname: "registry"
+        ports:
+            - "8300:8300"
+            - "8400:8400"
+            - "8500:8500"
+            - "8600:53/udp"
+
+    test-service:
+        command: --registry_address=registry:8500 --register_interval=5 --register_ttl=10 
+        build: ./sv
+        links:
+            - consul
+        ports:
+            - "8080:8080"
+
+
+
